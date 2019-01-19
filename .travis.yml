@@ -1,0 +1,16 @@
+language: python
+sudo: false
+
+python:
+  - "3.6"
+
+services:
+  - docker
+
+script:
+  - ./checkendline
+  - docker build -t buildozer3 .
+
+after_success:
+  if: branch = master
+  - ./dockerhubpush
