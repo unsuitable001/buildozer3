@@ -1,6 +1,8 @@
 # buildozer3
+[![License](https://img.shields.io/github/license/unsuitable001/buildozer3.svg?style=for-the-badge)](LICENSE)
+[![Build Status](https://img.shields.io/travis/com/unsuitable001/buildozer3.svg?style=for-the-badge)](https://travis-ci.org/unsuitable001/buildozer3)
+[![Docker Pulls](https://img.shields.io/docker/pulls/unsuitable001/buildozer3.svg?style=for-the-badge)](https://hub.docker.com/r/unsuitable001/buildozer3)
 
-[![Build Status](https://travis-ci.org/unsuitable001/buildozer3.svg?branch=master)](https://travis-ci.org/unsuitable001/buildozer3)
 
 A docker container for using Buildozer with python3 &amp; kivy
 
