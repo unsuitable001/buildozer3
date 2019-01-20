@@ -8,9 +8,10 @@ services:
   - docker
 
 script:
+  - echo "PR = $TRAVIS_PULL_REQUEST"
+  - echo "branch = $TRAVIS_BRANCH"
   - ./checkendline
   - docker build -t buildozer3 .
 
 after_success:
-  if: branch = master
   - ./dockerhubpush
