@@ -14,4 +14,7 @@ script:
   - docker build -t buildozer3 .
 
 after_success:
-  - ./dockerhubpush
+  - |
+    if [ "$TRAVIS_BRANCH" == "master" ]; then
+      curl --data build=true -X POST https://cloud.docker.com/api/build/v1/source/"$DOCKER_ID"/trigger/"$DOKCER_KEY"/call/
+    fi
