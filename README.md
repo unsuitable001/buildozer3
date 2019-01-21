@@ -8,7 +8,7 @@ A docker container for using Buildozer with python3 &amp; kivy
 
 Tested with python 3.6 & 3.7, kivy - latest, buildozer - latest, python-4-android - latest.
 
-`Android NDK` & `Crystax NDK` are downloaded automatically while building.
+`Android NDK` will be downloaded automatically.
 `Android NDK` is used by default as Crystax is depricated by Kivy. `NDK 14b` is used by default with
 `SDK 20` and `android api 24` as it works the best.
 
@@ -24,6 +24,7 @@ Change the spec file as per your needs. **I do not recommend changing `android.a
 `docker pull unsuitable001/buildozer3`
 
 Docker Hub Page : https://hub.docker.com/r/unsuitable001/buildozer3
+
 Github : https://github.com/unsuitable001/buildozer3/tree/master
 
 ## Docker Details
@@ -32,7 +33,7 @@ default work directory : `/home/kivy`
 
 mounted volume to the host file system : `/home/kivy`
 
-demo files are at : `/home/kivy`
+demo files are at : `/home/unsuitable001/bin`
 
 default user : `kivy`
 

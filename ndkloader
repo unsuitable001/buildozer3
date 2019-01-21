@@ -1,13 +1,19 @@
 #!/bin/bash
 
-if [ ! -d .buildozer/android/platform/android-ndk-r14b ]; then
+if [ ! -d /home/kivy/.buildozer/android/platform/android-ndk-r14b ]; then
     echo "NDK not found"
-    if [ ! -f .buildozer/android/platform/android-ndk-r14b-linux-x86_64.zip ]; then
+    cd /home/kivy/.buildozer/android/platform || mkdir -p /home/kivy/.buildozer/android/platform && cd /home/kivy/.buildozer/android/platform
+    if [ ! -f android-ndk-r14b-linux-x86_64.zip ]; then
         echo "NDK zip is also not found..."
         echo "NDK will be downloaded shortly..."
-        cd .buildozer/android/platform || mkdir -p .buildozer/android/platform && cd .buildozer/android/platform
         wget https://dl.google.com/android/repository/android-ndk-r14b-linux-x86_64.zip
         unzip -qq android-ndk-r14b-linux-x86_64.zip
         rm android-ndk-r14b-linux-x86_64.zip
+    else
+        unzip -qq android-ndk-r14b-linux-x86_64.zip || echo "File corrupted. Redownloading" \
+        && wget https://dl.google.com/android/repository/android-ndk-r14b-linux-x86_64.zip \
+        && unzip -qq android-ndk-r14b-linux-x86_64.zip
+        rm android-ndk-r14b-linux-x86_64.zip
     fi
 fi
+cd /home/kivy
