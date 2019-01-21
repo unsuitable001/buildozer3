@@ -19,17 +19,18 @@ Change the spec file as per your needs. **I do not recommend changing `android.a
 
 `docker build -t buildozer3 .`
 
-### pulling from dockerhub
+## pulling from dockerhub
 
 `docker pull unsuitable001/buildozer3`
 
 Docker Hub Page : https://hub.docker.com/r/unsuitable001/buildozer3
+Github : https://github.com/unsuitable001/buildozer3/tree/master
 
-### Docker Details
+## Docker Details
 
 default work directory : `/home/kivy`
 
-mounted voulume to the host file system : `/home/kivy`
+mounted volume to the host file system : `/home/kivy`
 
 demo files are at : `/home/kivy`
 
@@ -41,11 +42,11 @@ sudo user : `kivy`
 
 sudo password : `kivy`
 
-### reach me
+## Reach Me
 
 [Gitter](https://gitter.im/unsuitable001)
 
-### CREDITS
+## CREDITS
 
 A few already existing containers inspired me and helped me to make this.
 
