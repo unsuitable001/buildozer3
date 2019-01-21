@@ -11,6 +11,11 @@ script:
   - echo "PR = $TRAVIS_PULL_REQUEST"
   - echo "branch = $TRAVIS_BRANCH"
   - ./checkendline
+  - |
+    status=$(curl -s --head -w %{http_code} https://dl.google.com/android/repository/android-ndk-r14b-linux-x86_64.zip -o /dev/null)
+    if [ "$status" != "200" ]; then
+      exit 1
+    fi
   - docker build -t buildozer3 .
 
 after_success:
