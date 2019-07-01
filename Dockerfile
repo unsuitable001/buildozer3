@@ -65,4 +65,4 @@ VOLUME /home/kivy/
 
 USER kivy
 
-CMD bash -C "/home/unsuitable001/bin/ndkloader";"bash"
+CMD bash -C "/home/unsuitable001/bin/ndkloader"

@@ -17,3 +17,5 @@ if [ ! -d /home/kivy/.buildozer/android/platform/android-ndk-r14b ]; then
     fi
 fi
 cd /home/kivy
+/bin/bash
+
