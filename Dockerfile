@@ -1,4 +1,4 @@
-FROM bitnami/minideb:latest
+FROM bitnami/minideb:stretch
 
 LABEL maintainer="unsuitable001"
 
@@ -16,18 +16,26 @@ RUN set -ex \
     && dpkg --add-architecture i386 \
     && apt-get update -y -qq \
     && apt-get upgrade -y -qq \
+	&& apt-get install -y gpg \
+	&& apt-key adv --keyserver keyserver.ubuntu.com --recv-keys A863D2D6 \
+	&& echo "deb http://ppa.launchpad.net/kivy-team/kivy/ubuntu xenial main" | tee -a /etc/apt/sources.list \
+	&& apt-get update -y -qq \
     && install_packages build-essential libtool python3 python-dev libportmidi-dev libswscale-dev libavformat-dev > /dev/null
 RUN set -ex \
-    && install_packages libavcodec-dev libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev python3-kivy python3-pip \
+	&& apt-get update -y -qq \
+    && install_packages libavcodec-dev libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev python3-pip python3-kivy\
         git unzip zlib1g-dev zlib1g:i386 openjdk-8-jdk libgtk2.0-0:i386 libpangox-1.0-0:i386 libpangoxft-1.0-0:i386 > /dev/null
 RUN set -ex \
     && install_packages libidn11:i386 lib32stdc++6 libreadline-gplv2-dev libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev \
         libc6-dev libbz2-dev wget libstdc++6:i386 bsdtar autotools-dev autoconf sudo zip python3-dev python3-setuptools > /dev/null
-
 RUN set -ex \
 	&& sudo ln -fs /usr/bin/python3 /usr/bin/python \
 	&& sudo ln -s /usr/bin/pip3 /usr/bin/pip \
 	&& pip install cython
+	
+RUN set -ex \
+	&& apt-get remove -y gpg \
+	&& apt-get autoremove
 
 RUN set -ex \
     && useradd kivy -mN \
